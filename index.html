@@ -16,6 +16,7 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
+      perspective: 1000px; /* Создаём пространство для 3D-эффекта */
     }
     .container {
       position: relative;
@@ -23,7 +24,12 @@
       height: 500px;
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 8px 30px rgba(0,0,0,0.6);
+      box-shadow: 0 15px 40px rgba(0,0,0,0.7); /* Более выраженная тень */
+      transition: transform 0.5s ease-in-out, box-shadow 0.5s ease; /* Плавная анимация */
+    }
+    .container:hover {
+      transform: rotateY(5deg) rotateX(5deg) scale(1.05); /* Вращение и увеличение при наведении */
+      box-shadow: 0 25px 50px rgba(0,0,0,0.8); /* Тень становится больше */
     }
     .container::before {
       content: "";
@@ -34,6 +40,7 @@
       background: url('modern-georgian-woman.jpg') center/cover no-repeat;
       opacity: 0.9;
       filter: brightness(1.1);
+      transform: translateZ(20px); /* Смещаем изображение вперёд в 3D-пространстве */
     }
     .overlay {
       position: absolute;
@@ -43,6 +50,11 @@
       backdrop-filter: blur(5px);
       padding: 20px;
       text-align: center;
+      transform: translateZ(40px); /* Смещаем наложение с текстом ещё дальше вперёд */
+      transition: transform 0.5s ease-in-out;
+    }
+    .container:hover .overlay {
+      transform: translateZ(50px);
     }
     h1 {
       margin: 0;

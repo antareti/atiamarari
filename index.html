@@ -1,82 +1,72 @@
 <!DOCTYPE html>
 <html lang="ka">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>ნათია მარარი</title>
-    <link href="https://fonts.googleapis.com/css2?family=Roboto+Slab&family=Vazirmatn&display=swap" rel="stylesheet" />
-    <script src="script.js" defer></script>
-    <style>
-        /* Фон и базовые цвета */
-        body {
-            margin: 0;
-            padding: 0;
-            background: linear-gradient(135deg, #6a3e27, #b45f3d);
-            font-family: 'Vazirmatn', 'Roboto Slab', serif;
-            color: #f5e1c8;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            overflow: hidden;
-        }
-
-        /* Контейнер */
-        .container {
-            background: rgba(0, 0, 0, 0.6);
-            border-radius: 25px;
-            padding: 40px 60px;
-            text-align: center;
-            box-shadow: 0 0 30px rgba(180, 95, 61, 0.8);
-            max-width: 400px;
-            user-select: none;
-        }
-
-        h1 {
-            font-size: 3rem;
-            margin-bottom: 15px;
-            letter-spacing: 0.05em;
-            font-weight: 700;
-            text-shadow: 0 0 8px #b45f3d;
-        }
-
-        p {
-            font-size: 1.1rem;
-            line-height: 1.6;
-            margin-top: 0;
-            color: #f1c27d;
-            font-weight: 400;
-        }
-
-        /* Эффект плавного мерцания */
-        @keyframes glow {
-            0%, 100% {
-                text-shadow: 0 0 8px #b45f3d;
-            }
-            50% {
-                text-shadow: 0 0 20px #d27b50;
-            }
-        }
-
-        h1 {
-            animation: glow 3s ease-in-out infinite;
-        }
-
-        /* Небольшой стилизованный элемент для взрослой аудитории */
-        .adult-note {
-            margin-top: 25px;
-            font-size: 0.9rem;
-            color: #d9a763;
-            font-style: italic;
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>ნათია მარარი</title>
+  <link href="https://fonts.googleapis.com/css2?family=Vazirmatn&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Vazirmatn', serif;
+      color: #f5e1c8;
+      background: #1c1c1c;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      position: relative;
+      width: 360px;
+      height: 500px;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 0 20px rgba(0,0,0,0.7);
+    }
+    .container::before {
+      content: "";
+      position: absolute;
+      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      background: url('modern-georgian-woman.jpg') center/cover no-repeat;
+      opacity: 0.85;
+    }
+    .overlay {
+      position: absolute;
+      bottom: 0;
+      width: 100%;
+      background: rgba(0,0,0,0.65);
+      padding: 20px;
+      text-align: center;
+    }
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+      text-shadow: 0 0 8px #d9a763;
+    }
+    p {
+      margin-top: 10px;
+      font-size: 1rem;
+      color: #d9a763;
+    }
+    .adult-note {
+      margin-top: 15px;
+      font-size: 0.85rem;
+      font-style: italic;
+      color: #cda15c;
+    }
+  </style>
 </head>
 <body>
-    <div class="container">
-        <h1>ნათია მარარი</h1>
-        <p>გვესმის, რომ მხოლოდ მკაცრად 18+ სერვისებისთვისაა.</p>
-        <p class="adult-note">გთხოვთ, მხოლოდ სრულწლოვანებმა გამოიყენონ ეს გვერდი.</p>
+  <div class="container">
+    <div class="overlay">
+      <h1>ნათია მარარი</h1>
+      <p>გვესმის, რომ მხოლოდ მკაცრად 18+ სერვისებისთვისაა.</p>
+      <p class="adult-note">გთხოვთ, მხოლოდ სრულწლოვანებმა გამოიყენონ ეს გვერდი.</p>
     </div>
+  </div>
 </body>
 </html>
-

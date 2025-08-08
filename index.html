@@ -16,7 +16,7 @@
       justify-content: center;
       align-items: center;
       height: 100vh;
-      perspective: 1000px; /* Создаём пространство для 3D-эффекта */
+      perspective: 1000px;
     }
     .container {
       position: relative;
@@ -24,12 +24,12 @@
       height: 500px;
       border-radius: 12px;
       overflow: hidden;
-      box-shadow: 0 15px 40px rgba(0,0,0,0.7); /* Более выраженная тень */
-      transition: transform 0.5s ease-in-out, box-shadow 0.5s ease; /* Плавная анимация */
+      box-shadow: 0 15px 40px rgba(0,0,0,0.7);
+      transition: transform 0.5s ease-in-out, box-shadow 0.5s ease;
     }
     .container:hover {
-      transform: rotateY(5deg) rotateX(5deg) scale(1.05); /* Вращение и увеличение при наведении */
-      box-shadow: 0 25px 50px rgba(0,0,0,0.8); /* Тень становится больше */
+      transform: rotateY(5deg) rotateX(5deg) scale(1.05);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.8);
     }
     .container::before {
       content: "";
@@ -40,7 +40,7 @@
       background: url('modern-georgian-woman.jpg') center/cover no-repeat;
       opacity: 0.9;
       filter: brightness(1.1);
-      transform: translateZ(20px); /* Смещаем изображение вперёд в 3D-пространстве */
+      transform: translateZ(20px);
     }
     .overlay {
       position: absolute;
@@ -50,7 +50,7 @@
       backdrop-filter: blur(5px);
       padding: 20px;
       text-align: center;
-      transform: translateZ(40px); /* Смещаем наложение с текстом ещё дальше вперёд */
+      transform: translateZ(40px);
       transition: transform 0.5s ease-in-out;
     }
     .container:hover .overlay {
@@ -76,12 +76,30 @@
   </style>
 </head>
 <body>
-  <div class="container">
+  <div class="container" onmouseover="playStonySound()" onmouseout="stopStonySound()">
     <div class="overlay">
       <h1>ნათია მარარი</h1>
       <p>გვესმის, რომ მხოლოდ მკაცრად 18+ სერვისებისთვისაა.</p>
       <p class="adult-note">გთხოვთ, მხოლოდ სრულწლოვანებმა გამოიყენონ ეს გვერდი.</p>
     </div>
   </div>
+
+  <audio id="stonySound" src="stony.mp3" preload="auto"></audio>
+
+  <script>
+    const sound = document.getElementById('stonySound');
+    
+    function playStonySound() {
+      // Останавливаем, если уже играет, чтобы можно было перезапустить
+      sound.pause();
+      sound.currentTime = 0;
+      sound.play();
+    }
+    
+    function stopStonySound() {
+      sound.pause();
+      sound.currentTime = 0;
+    }
+  </script>
 </body>
 </html>

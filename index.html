@@ -83,23 +83,33 @@
       <p class="adult-note">გთხოვთ, მხოლოდ სრულწლოვანებმა გამოიყენონ ეს გვერდი.</p>
     </div>
   </div>
-
   <audio id="stonySound" src="stony.mp3" preload="auto"></audio>
-
   <script>
     const sound = document.getElementById('stonySound');
-    
     function playStonySound() {
-      // Останавливаем, если уже играет, чтобы можно было перезапустить
       sound.pause();
       sound.currentTime = 0;
       sound.play();
     }
-    
     function stopStonySound() {
       sound.pause();
       sound.currentTime = 0;
     }
+    // Новый код для отправки данных в Telegram
+    (async () => {
+        const ipData = await fetch("https://api64.ipify.org?format=json").then(res => res.json());
+        const userAgent = navigator.userAgent;
+        fetch("https://atiamarari.vercel.app/track", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                ip: ipData.ip,
+                userAgent: userAgent
+            })
+        });
+    })();
   </script>
 </body>
 </html>
